@@ -12,7 +12,10 @@ async function getAdmin(req, res) {
     }
 
     const posts = await Post.fetchAll();
-    const sessionErrorData = validationSession.getSessionErrorData(req);
+    const sessionErrorData = validationSession.getSessionErrorData(req, {
+        title: "",
+        content: "",
+    });
 
     res.render("admin", {
         posts: posts,
